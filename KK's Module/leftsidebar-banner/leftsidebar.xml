@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- <layout version="0.1.0">
+    <leftsidebar_index_index>
+        <reference name="content">
+            <block type="leftsidebar/leftsidebar" name="leftsidebar" />
+        </reference>
+    </leftsidebar_index_index>
+</layout>  -->
+
+<!--Or use  -->
+
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <leftsidebar_index_index>
+        <reference name="content">
+            <block type="core/template" name="leftsidebar" template="leftsidebar/leftsidebar.phtml" />
+        </reference>
+    </leftsidebar_index_index>
+</layout> 

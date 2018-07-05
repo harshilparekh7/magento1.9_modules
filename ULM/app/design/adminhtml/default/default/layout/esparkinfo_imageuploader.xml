@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * {{Esparkinfo}}_{{Imageuploader}} extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       {{Esparkinfo}}
+ * @package        {{Esparkinfo}}_{{Imageuploader}}
+ * @copyright      Copyright (c) 2018
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+--> 
+<layout>
+    <adminhtml_imageuploader_imageupload_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>esparkinfo_imageuploader/imageupload</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="esparkinfo_imageuploader/adminhtml_imageupload" name="imageupload" />
+
+        </reference>
+    </adminhtml_imageuploader_imageupload_index>
+    <adminhtml_imageuploader_imageupload_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="esparkinfo_imageuploader/adminhtml_imageupload_grid" name="imageupload_grid"/>
+        </block>
+    </adminhtml_imageuploader_imageupload_grid>
+    <!-- Imageupload add/edit action -->
+    <adminhtml_imageuploader_imageupload_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>esparkinfo_imageuploader/imageupload</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="esparkinfo_imageuploader/adminhtml_imageupload_edit" name="imageupload_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="esparkinfo_imageuploader/adminhtml_imageupload_edit_tabs" name="imageupload_tabs"></block>
+        </reference>
+    </adminhtml_imageuploader_imageupload_edit>
+
+    <adminhtml_imageuploader_imageupload_comment_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>esparkinfo_imageuploader/imageupload_comment</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="esparkinfo_imageuploader/adminhtml_imageupload_comment" name="imageupload_comment_grid"/>
+        </reference>
+    </adminhtml_imageuploader_imageupload_comment_index>
+    <adminhtml_imageuploader_imageupload_comment_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="esparkinfo_imageuploader/adminhtml_imageupload_comment_grid" name="imageupload_comment_grid"/>
+        </block>
+    </adminhtml_imageuploader_imageupload_comment_grid>
+    <adminhtml_imageuploader_imageupload_comment_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>esparkinfo_imageuploader/imageupload_comment</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="esparkinfo_imageuploader/adminhtml_imageupload_comment_edit" name="imageupload_comment_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="esparkinfo_imageuploader/adminhtml_imageupload_comment_edit_tabs" name="imageupload_comment_tabs"></block>
+        </reference>
+    </adminhtml_imageuploader_imageupload_comment_edit>
+</layout>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Hp_Leftsidebar>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Hp_Leftsidebar>
+    </modules>
+</config> 

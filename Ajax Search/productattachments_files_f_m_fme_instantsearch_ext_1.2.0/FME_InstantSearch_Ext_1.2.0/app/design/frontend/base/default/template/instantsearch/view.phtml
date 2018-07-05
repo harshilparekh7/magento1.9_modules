@@ -1,0 +1,119 @@
+<?php  
+/**
+ * FME Instant Search
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   FME
+ * @package    Instant Search
+ * @author     Muhammad Qaisar Satti <shumail123@gmail.com>
+ *         
+ * @copyright  Copyright 2015 © www.fmeextensions.com All right reserved
+ */
+$collection=$this->searchQuery();
+
+
+if(count($collection) and $collection!="") {
+
+if($this->checkk()==0)
+{ ?>
+ <div id="getproduct">
+
+<div class="product_instant_search_popup clearfix">
+      <a href="javascript:void(0)" onclick="removedd()"><img src="<?php echo $this->getSkinUrl('images/FME_instantsearch/close.png');?>" alt="" class="close"></a>
+<?php 
+
+
+$a=1;
+foreach($collection as $coll) {
+if($a==1)
+{  $_product = Mage::getModel('catalog/product')->load($collection[0]);
+	?>
+<div id="currproduct">
+
+<div class="product_view">
+      
+     <div class="large_thumbnail" >
+       <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(280) ?>"  alt="<?php echo $this->escapeHtml($_product->getName()) ?>">
+     </div>
+      
+      <div class="prod_detail">
+        <h1><?php echo $this->escapeHtml($_product->getName()) ?></h1>
+        <h5><?php $key =  Mage::getSingleton('core/session')->getFormKey();;
+                     $price=$_product->getFinalPrice();
+             echo  Mage::helper('core')->currency($price,true,true);?></h5>
+        
+          <?php echo $this->__('QTY:') ?> <input maxlength="12" id="qty" name="qty" type="text" class="input_field" value="1"> <input name="" type="button" class="input_btn" onclick="addtocart('<?php  echo Mage::getBaseUrl();?>checkout/cart/add/product/<?php  echo $_product->getid();?>','form_key/<?php echo $key; ?>')" value="Add to Cart">
+      <div id="loader"></div>
+       <div class="over_view">
+
+         <h3><?php echo $this->__('Quick Description:') ?> <a href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->__('View Detail') ?></a></h3>
+         <p><?php echo  $_product->getShortDescription() ?>..</p>
+       </div>
+      </div>
+      </div>
+      </div>
+	<?php
+} $a++;}
+ ?>
+
+<div class="related">
+<ul>
+<?php $a=1;$collection=$this->searchQuery();
+foreach($collection as $product1)
+{ 
+$_product1 = Mage::getModel('catalog/product')->load($product1);
+	?>
+<li id="is-<?php echo $_product1->getid(); ?>"<?php if($a==1) { ?> class='active' <?php }?>>
+
+ <img src="<?php echo $this->helper('catalog/image')->init($_product1, 'small_image')->resize($this->getthumb()) ?>"  onclick="getpro('<?php echo $_product1->getid(); ?>','<?php echo $this->getUrl('instantsearch/index') ?>')"  />
+
+</li>
+
+<?php $a++; } ?>
+</ul>
+</div>
+</div>
+</div>
+<?php } else {
+	$_product=$this->searchQuery();
+	?>
+
+
+<div class="product_view" >
+<div class="large_thumbnail"  >
+       <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(280) ?>"  alt="<?php echo $this->escapeHtml($_product->getName()) ?>">
+     </div>
+      
+      <div class="prod_detail" >
+        <h1><?php echo $this->escapeHtml($_product->getName()) ?></h1>
+        <h5><?php $key =  Mage::getSingleton('core/session')->getFormKey();;
+                     $price=$_product->getFinalPrice();
+             echo  Mage::helper('core')->currency($price,true,true);?></h5>
+        
+          <?php echo $this->__('QTY:') ?> <input maxlength="12" id="qty" name="qty" type="text" class="input_field" value="1"> <input name="" type="button" class="input_btn" onclick="addtocart('<?php  echo Mage::getBaseUrl();?>checkout/cart/add/product/<?php  echo $_product->getid();?>','form_key/<?php echo $key; ?>')" value="Add to Cart">
+      <div id="loader"></div>
+       <div class="over_view">
+         <h3><?php echo $this->__('Quick Description:') ?> <a href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->__('View Detail') ?></a></h3>
+         <p><?php echo  $_product->getShortDescription() ?>..</p>
+       </div>
+      </div>
+</div>
+
+
+<?php }}else { ?>
+<div class="product_instant_search_popup clearfix">
+      <a href="javascript:void(0)" onclick="removedd()"><img src="<?php echo $this->getSkinUrl('images/FME_instantsearch/close.png');?>" alt="" class="close"></a>
+      <p>
+
+      <?php echo $this->__('No Product Found') ?></p>
+      </div>
+<?php } ?>
+
+
+

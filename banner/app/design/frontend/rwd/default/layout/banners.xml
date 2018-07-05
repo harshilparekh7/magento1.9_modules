@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="1.4.0">
+    <default>
+    </default>
+    <banners_index_index>
+        <reference name="content">
+            <block type="banners/banners" name="banners" template="banners/banners.phtml" />
+        </reference>
+    </banners_index_index>
+     <cms_index_index>
+    	<reference name="content">
+    		<block type="banners/banners" name="banners" before="-">
+    			<action method="setTemplate" ifconfig="banners/general/addonhome" ><template>banners/banners.phtml</template></action>
+    		</block>
+        </reference>
+    </cms_index_index>
+</layout> 

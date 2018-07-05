@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<FME_Base>
+			<version>1.0.0</version>
+		</FME_Base>
+	</modules>
+	<global>
+		<blocks>
+			<base>
+				<class>FME_Base_Block</class>
+			</base>
+		</blocks>
+		<helpers>
+			<base>
+				<class>FME_Base_Helper</class>
+			</base>
+		</helpers>
+		<template>
+	        <email>
+	            <fme_Support_email module="reviewsplus">
+	                <label>FME Support Email</label>
+	                <file>fme_Support_email.html</file>
+	                <type>html</type>
+	            </fme_Support_email>
+	        </email>
+	    </template>
+	</global>
+	<adminhtml>
+		<menu>
+			<FME module="base">
+				<title>FME Extensions</title>
+				<sort_order>71</sort_order>               
+				<children>
+					
+					<fmebaseconfig translate="title">
+						<title>Extensions and Support</title>
+						<sort_order>2</sort_order>
+						<action>adminhtml/system_config/edit/section/basesec</action>
+					</fmebaseconfig>
+				</children>
+			</FME>
+		</menu>
+		<acl>
+            <resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+                <admin>
+                    <children>
+						<FME module="base">
+							<title>FME Extensions</title>
+							<sort_order>71</sort_order>               
+							<children>
+								
+								<fmebaseconfig translate="title">
+									<title>Extensions and Support</title>
+									<sort_order>100</sort_order>
+									
+								</fmebaseconfig>
+							</children>
+						</FME>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <basesec translate="title" module="base">
+                                            <title>Extension's Info and Support</title>
+                                            <sort_order>1000</sort_order>
+                                        </basesec>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+		<layout>
+			<updates>
+				<base>
+					<file>base.xml</file>
+				</base>
+			</updates>
+		</layout>
+		<translate>
+            <modules>
+                <FME_Base>
+                    <files>
+                        <default>FME_Base.csv</default>
+                    </files>
+                </FME_Base>
+            </modules>
+        </translate>
+		
+    </adminhtml> 
+    <admin>
+        <routers>
+            <adminhtml>
+                
+                <args>
+                    <modules><fme_base after="Mage_Adminhtml">FME_Base_Adminhtml</fme_base></modules>
+                    
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+	<frontend>
+	</frontend>
+	</config>
