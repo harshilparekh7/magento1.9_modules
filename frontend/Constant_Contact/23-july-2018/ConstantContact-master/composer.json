@@ -1,0 +1,19 @@
+{
+    "name": "extensions-store/constantcontact",
+    "license": "GPL-3.0",
+    "type": "magento-module",
+    "description": "Add Magento users to Constant Contact contacts and lists.",
+    "homepage": "https://github.com/ExtensionsStore/ConstantContact.git",
+    "require": {
+        "php": ">=5.3",
+        "constantcontact/constantcontact": "1.3.*",
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "authors": [
+        {
+            "name": "David Tay",
+            "email": "admin@extensions-store.com",
+            "role": "Author/Maintainer"
+        }
+    ]
+}

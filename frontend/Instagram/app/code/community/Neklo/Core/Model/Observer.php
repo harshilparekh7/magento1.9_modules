@@ -1,0 +1,52 @@
+<?php
+
+class Neklo_Core_Model_Observer
+{
+    public function checkUpdate(Varien_Event_Observer $observer)
+    {
+        if (Mage::getSingleton('admin/session')->isLoggedIn()) {
+            Mage::getModel('neklo_core/feed')->checkUpdate();
+        }
+    }
+
+    public function sortModuleTabList(Varien_Event_Observer $observer)
+    {
+        $configContainerBlock = $observer->getBlock();
+        if (!$configContainerBlock instanceof Mage_Adminhtml_Block_System_Config_Tabs) {
+            return null;
+        }
+        $tabList = $configContainerBlock->getTabs();
+        foreach ($tabList as $tab) {
+            if ($tab->getId() !== 'neklo') {
+                continue;
+            }
+
+            $sectionList = $tab->getSections();
+            if (!$sectionList || !$sectionList->getSize()) {
+                continue;
+            }
+
+            $sectionListArray = $sectionList->toArray();
+            $sectionListArray = $sectionListArray['items'];
+            usort($sectionListArray, array($this, '_sort'));
+
+            $tab->getSections()->clear();
+            foreach ($sectionListArray as $_section) {
+                $section = new Varien_Object($_section);
+                $section->setId($_section['id']);
+                $tab->getSections()->addItem($section);
+            }
+        }
+    }
+
+    protected function _sort($a, $b)
+    {
+        if ($a['id'] == 'neklo_core') {
+            return 1;
+        }
+        if ($b['id'] == 'neklo_core') {
+            return -1;
+        }
+        return strcasecmp($a['label'], $b['label']);
+    }
+}

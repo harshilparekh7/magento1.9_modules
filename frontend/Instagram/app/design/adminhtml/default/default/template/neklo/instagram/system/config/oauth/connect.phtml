@@ -1,0 +1,46 @@
+<?php /* @var $this Neklo_Instagram_Block_Adminhtml_System_Config_Frontend_Oauth_Connect */ ?>
+<?php echo $this->getButtonHtml(); ?>
+<script type="text/javascript">
+    var button = $('<?php echo $this->getButton()->getId(); ?>');
+    if (button) {
+        Event.observe(button, 'click', function(e) {
+            Event.stop(e);
+
+            new Ajax.Request(
+                '<?php echo $this->getSaveConfigUrl() ?>',
+                {
+                    parameters: {
+                        'client_id' : $('neklo_instagram_api_client_id').getValue().trim(),
+                        'client_secret' : $('neklo_instagram_api_client_secret').getValue().trim()
+                    },
+                    method: 'POST',
+                    onSuccess: function(transport) {
+                        var response = null;
+                        try {
+                            response = eval('(' + transport.responseText + ')');
+                        } catch (exception) {
+                            response = {};
+                        }
+
+                        if (!response.success || !response.login_url) {
+                            location.reload();
+                        } else {
+                            var popupWidth = 640;
+                            var popupHeight = 560;
+                            var popupLeftOffset = screen.width / 2 - 640 / 2;
+                            var popupTopOffset = screen.height / 2 - 480 / 2;
+                            popWin(
+                                response.login_url,
+                                'instagram_oauth',
+                                'width=' + popupWidth + ',height=' + popupHeight + ',left=' + popupLeftOffset + ',top=' + popupTopOffset + ',location=no,status=no,menubar=no,toolbar=no,resizable=no,scrollbars=no'
+                            );
+                        }
+                    },
+                    onFailure: function () {
+                        location.reload();
+                    }
+                }
+            );
+        });
+    }
+</script>

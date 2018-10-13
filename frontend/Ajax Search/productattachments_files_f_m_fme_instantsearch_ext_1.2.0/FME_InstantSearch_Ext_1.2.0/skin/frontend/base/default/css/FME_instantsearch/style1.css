@@ -1,0 +1,77 @@
+
+#searchcontent {
+    position: absolute;
+    right: 0;
+    text-align: left;
+    width: 240%;
+    z-index: 1000;
+}
+#searchcontent .product_container {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid;
+    float: left;
+    width: 100%;
+}
+#searchcontent .product_container .pro_image {
+    float: left;
+    width: 50%;
+}
+#searchcontent .product_container .pro_text {
+    float: left;
+    margin: 10px 10px 0 0;
+    width: 48%;
+}
+#searchcontent .product_container .pro_text .product-name {
+    font-size: 22px;
+    font-weight: bold;
+}
+#searchcontent .product_container .pro_text .add-to-cart {
+    float: left;
+    width: 100%;
+}
+#searchcontent .product_container .pro_text .add-to-cart .add-to-cart-buttons {
+    float: left;
+    width: 60%;
+}
+#searchcontent .product_container .pro_text .add-to-cart .qty-wrapper {
+    float: left;
+    width: 30%;
+}
+.cleardiv {
+    clear: both;
+}
+#searchcontent .thumbcontainer {
+    background: none repeat scroll 0 0 #fff;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    float: left;
+    padding: 3%;
+    text-align: left;
+    width: 100%;
+}
+#searchcontent .thumbcontainer .small_thumb {
+    float: left;
+}
+#searchcontent .thumbcontainer .small_thumb img {
+    cursor: pointer;
+    float: left;
+    padding: 3%;
+    text-align: left;
+}
+#searchcontent .thumbcontainer .small_thumb a:hover {
+    text-decoration: none;
+}
+#searchcontent .thumbcontainer .small_thumb a:link {
+    text-decoration: none;
+}
+#searchcontent .thumbcontainer .small_thumb a:visited {
+    text-decoration: none;
+}
+.selected {
+    border: 1px solid;
+}
+.loading {
+    background: url("../../images/FME_instantsearch/loading.gif") no-repeat scroll 50% center #ffffff !important;
+    position: absolute;
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <testmodule_adminhtml_testmodule_index>
+        <reference name="content">
+            <block type="testmodule/adminhtml_testmodule" name="testmodule" />
+        </reference>
+    </testmodule_adminhtml_testmodule_index>
+</layout>

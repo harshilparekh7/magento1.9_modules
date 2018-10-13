@@ -1,0 +1,8 @@
+<!-- <?xml version="1.0"?>
+<layout version="0.1.0">
+    <headerimage_adminhtml_headerimage_index>
+        <reference name="content">
+            <block type="headerimage/adminhtml_headerimage" name="headerimage" />
+        </reference>
+    </headerimage_adminhtml_headerimage_index>
+</layout> -->

@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Mage
+ * @package    FME_Banners
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <FME_Banners>
+            <version>1.7.1</version>
+        </FME_Banners>
+    </modules>
+    <frontend>
+        <routers>
+            <banners>
+                <use>standard</use>
+                <args>
+                    <module>FME_Banners</module>
+                    <frontName>banners</frontName>
+                </args>
+            </banners>
+        </routers>
+        <layout>
+            <updates>
+                <banners>
+                    <file>banners.xml</file>
+                </banners>
+            </updates>
+        </layout>
+    </frontend>
+
+    
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <fme_banners after="Mage_Adminhtml">FME_Banners_Adminhtml</fme_banners>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+            <fme>
+                <title>FME Extensions</title>
+                <sort_order>71</sort_order>
+                <children>
+                    <basesec translate="title">
+                        <title>Extensions and Support</title>
+                        <sort_order>0</sort_order>
+                        <action>adminhtml/system_config/edit/section/basesec</action>
+                    </basesec>
+                    <banners module="banners">
+                        <title>Banners</title>
+                        <sort_order>71</sort_order>               
+                        <children>
+                            <items module="banners">
+                                <title>Manage Banners</title>
+                                <sort_order>0</sort_order>
+                                <action>adminhtml/banners</action>
+                            </items>
+                            <config translate="title">
+                                <title>Configuration</title>
+                                <sort_order>2</sort_order>
+                                <action>adminhtml/system_config/edit/section/banners</action>
+                            </config>
+                        </children>
+                    </banners>
+                </children>
+            </fme>
+        </menu>
+		<acl>
+            <resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+                <admin>
+                    <children>
+                        <fme>
+                            <title>FME Extensions</title>
+                            <sort_order>71</sort_order>
+                            <children>
+                                <basesec translate="title">
+                                    <title>Extensions and Support</title>
+                                    <sort_order>0</sort_order>
+                                    <action>adminhtml/system_config/edit/section/basesec</action>
+                                </basesec>
+                                <banners module="banners">
+                                    <title>Banners</title>
+                                    <sort_order>71</sort_order>               
+                                    <children>
+                                        <items module="banners">
+                                            <title>Manage Banners</title>
+                                            <sort_order>0</sort_order>
+                                            <action>adminhtml/banners</action>
+                                        </items>
+                                        <config translate="title">
+                                            <title>Configuration</title>
+                                            <sort_order>2</sort_order>
+                                            <action>adminhtml/system_config/edit/section/banners</action>
+                                        </config>
+                                    </children>
+                                </banners>
+                            </children>
+                        </fme>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <basesec translate="title">
+                                            <title>Extensions and Support</title>
+                                            <sort_order>0</sort_order>
+                                            <action>adminhtml/system_config/edit/section/basesec</action>
+                                        </basesec>
+                                        <banners translate="title" module="banners">
+                                            <title>Banners Section</title>
+                                            <sort_order>50</sort_order>
+                                        </banners>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+		<layout>
+			<updates>
+				<banners>
+					<file>banners.xml</file>
+				</banners>
+			</updates>
+		</layout>
+        <translate>
+            <modules>
+                <FME_Banners>
+                    <files>
+                        <default>FME_Banners.csv</default>
+                    </files>
+                </FME_Banners>
+            </modules>
+        </translate>
+    </adminhtml>   
+    <global>
+        <models>
+            <banners>
+                <class>FME_Banners_Model</class>
+                <resourceModel>banners_mysql4</resourceModel>
+            </banners>
+            <banners_mysql4>
+                <class>FME_Banners_Model_Mysql4</class>
+                <entities>
+                    <banners>
+                        <table>banners</table>
+                    </banners>
+					<banners_store>
+		                <table>banners_store</table>
+		            </banners_store>
+                </entities>
+            </banners_mysql4>
+        </models>
+        <resources>
+            <banners_setup>
+                <setup>
+                    <module>FME_Banners</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </banners_setup>
+            <banners_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </banners_write>
+            <banners_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </banners_read>
+        </resources>
+        <blocks>
+            <banners>
+                <class>FME_Banners_Block</class>
+            </banners>
+            <fmebase>
+                <class>FME_Banners_Block</class>
+            </fmebase>
+        </blocks>
+        <helpers>
+            <banners>
+                <class>FME_Banners_Helper</class>
+            </banners>
+        </helpers>
+        <template>
+            <email>
+                <fme_Support_email module="banners">
+                    <label>FME Support Email</label>
+                    <file>banners_Support_email.html</file>
+                    <type>html</type>
+                </fme_Support_email>
+            </email>
+        </template>
+    </global>
+</config>

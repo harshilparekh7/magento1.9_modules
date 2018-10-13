@@ -1,0 +1,47 @@
+<?php 
+/**
+ * {{Esparkinfo}}_{{Imageuploader}} extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       {{Esparkinfo}}
+ * @package        {{Esparkinfo}}_{{Imageuploader}}
+ * @copyright      Copyright (c) 2018
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Imageupload list template
+ *
+ * @category    Esparkinfo
+ * @package     Esparkinfo_Imageuploader
+ * @author      Ultimate Module Creator
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_imageuploads = $this->getImageuploads(); ?>
+<div class="page-title imageupload-title">
+    <?php if (Mage::helper('esparkinfo_imageuploader/imageupload')->isRssEnabled()) : ?>
+        <a href="<?php echo Mage::helper('esparkinfo_imageuploader/imageupload')->getRssUrl();?>" class="link-rss"><?php echo Mage::helper('esparkinfo_imageuploader')->__('Subscribe to RSS Feed')?></a>
+    <?php endif;?>
+    <h1><?php echo Mage::helper('esparkinfo_imageuploader')->__('Imageuploads') ?></h1>
+</div>
+<?php if ($_imageuploads->getSize() > 0) :?>
+    <?php echo $this->getPagerHtml(); ?>
+    <div class="imageupload-list-container">
+    <?php foreach ($_imageuploads as $_imageupload) : ?>
+        <div class="imageupload-list-item">
+            <a href="<?php echo $_imageupload->getImageuploadUrl()?>">
+                <?php echo $_imageupload->getImageupload();?>
+            </a><br />
+        </div>
+    <?php endforeach;?>
+    </div>
+    <?php echo $this->getPagerHtml(); ?>
+<?php else : ?>
+    <?php echo Mage::helper('esparkinfo_imageuploader')->__('There are no imageuploads at this moment');?>
+<?php endif;?>

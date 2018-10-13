@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <modules>
+        <Ebiz_Autosubscribe>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Ebiz_Autosubscribe>
+    </modules>
+</config>

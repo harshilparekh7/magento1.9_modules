@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Robinhq_Hooks>
+            <version>2.2.0</version>
+        </Robinhq_Hooks>
+    </modules>
+    <global>
+        <helpers>
+            <robinhq_hooks>
+                <class>Robinhq_Hooks_Helper</class>
+            </robinhq_hooks>
+        </helpers>
+        <blocks>
+            <robinhq_hooks>
+                <class>Robinhq_Hooks_Block</class>
+            </robinhq_hooks>
+        </blocks>
+        <models>
+            <robinhq_hooks>
+                <class>Robinhq_Hooks_Model</class>
+            </robinhq_hooks>
+        </models>
+        <resources>
+            <robinnhq_hooks_setup>
+                <setup>
+                    <module>Robinhq_Hooks</module>
+                    <class>Mage_Customer_Model_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </robinnhq_hooks_setup>
+        </resources>
+
+        <events>
+            <customer_save_after>
+                <observers>
+                    <customer_save_after_handler>
+                        <type>singleton</type>
+                        <class>robinhq_hooks/observer</class>
+                        <method>customerHook</method>
+                    </customer_save_after_handler>
+                </observers>
+            </customer_save_after>
+            <sales_order_place_after>
+                <observers>
+                    <sales_order_place_after_handler>
+                        <type>singleton</type>
+                        <class>robinhq_hooks/observer</class>
+                        <method>orderPlacedHook</method>
+                    </sales_order_place_after_handler>
+                </observers>
+            </sales_order_place_after>
+            <sales_order_save_after>
+                <observers>
+                    <sales_order_save_after_handler>
+                        <type>model</type>
+                        <class>robinhq_hooks/observer</class>
+                        <method>orderStatusChangeHook</method>
+                    </sales_order_save_after_handler>
+                </observers>
+            </sales_order_save_after>
+        </events>
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <robinhq_hooks before="Mage_Adminhtml">Robinhq_Hooks_Adminhtml</robinhq_hooks>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <hooks>
+                    <file>robinhq_hooks.xml</file>
+                </hooks>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <frontend>
+        <layout>
+            <updates>
+                <robinhq_hooks>
+                    <file>robinhq_hooks.xml</file>
+                </robinhq_hooks>
+            </updates>
+        </layout>
+    </frontend>
+
+    <default>
+        <settings>
+            <general>
+                <enabled>0</enabled>
+                <api_key />
+                <api_secret />
+                <api_url>https://api.robinhq.com/</api_url>
+                <bulk_limit>15</bulk_limit>
+                <select_limit>500</select_limit>
+            </general>
+        </settings>
+    </default>
+
+</config> 

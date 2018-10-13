@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<package>
+    <name>tinify+Tiny_Compresss_Images</name>
+    <version>2.0.3</version>
+    <stability>stable</stability>
+    <license>MIT License</license>
+    <channel>35de6cb013a9af4faa520f74c9cf9956</channel>
+    <extends/>
+    <summary>Compress JPEG &amp; PNG images</summary>
+    <description># Compress JPEG &amp; PNG images for Magento 1&#xD;
+&#xD;
+Make your Magento 1 store faster by compressing your JPEG and PNG images.&#xD;
+&#xD;
+This plugin automatically optimizes your images by integrating with the&#xD;
+popular image compression services TinyJPG and TinyPNG.&#xD;
+&#xD;
+Learn more about TinyJPG and TinyPNG at https://tinypng.com/.&#xD;
+&#xD;
+Do you use Magento 2? Install our Magento 2 plugin instead:&#xD;
+https://packagist.org/packages/tinify/magento2&#xD;
+&#xD;
+## How doest it work?&#xD;
+&#xD;
+When you view a product in your webshop, Magento creates different image sizes&#xD;
+in its cache folders. This extension will compress these images for you&#xD;
+automatically. Any image sizes that are exact duplicates of each other will&#xD;
+only be compressed once.&#xD;
+&#xD;
+Your product images are uploaded to the TinyJPG or TinyPNG service and&#xD;
+analyzed to apply the best possible compression. Based on the content of the&#xD;
+image an optimal strategy is chosen. The result is sent back to your Magento&#xD;
+webshop and saved in your public media folder.&#xD;
+&#xD;
+On average JPEG images are compressed by 40-60% and PNG images by 50-80%&#xD;
+without visible loss in quality. Your webshop will load faster for your&#xD;
+visitors, and you&#x2019;ll save storage space and bandwidth!&#xD;
+&#xD;
+## Getting started&#xD;
+&#xD;
+Obtain your free API key from https://tinypng.com/developers. The first 500&#xD;
+compressions per month are completely free, no strings attached! As each&#xD;
+product will be shown in different sizes, between 50 and 100 products can be&#xD;
+uploaded to your Magento webshop and compressed for free. You can also change&#xD;
+which of types of image sizes should be compressed.&#xD;
+&#xD;
+If you&#x2019;re a heavy user, you can compress additional images for a small&#xD;
+additional fee per image by upgrading your account. You can keep track of the&#xD;
+amount of compressions in the Magento 1 configuration section.&#xD;
+&#xD;
+## Installation&#xD;
+&#xD;
+Copy the extension key from Magento Connect. Login on your webshop backend&#xD;
+and open *System -&gt; Magento Connect -&gt; Magento Connect Manager*.&#xD;
+Paste the extension key to install the extension.&#xD;
+&#xD;
+After installation, go to *System -&gt; Configuration -&gt; Image Optimization*, and&#xD;
+enter your TinyPNG API Key. Flush the images cache to start compressing.&#xD;
+&#xD;
+## Contact us&#xD;
+&#xD;
+Got questions or feedback? Let us know! Contact us at support@tinypng.com.&#xD;
+&#xD;
+## Information for plugin contributors&#xD;
+&#xD;
+* PHP 5.4 or newer.&#xD;
+* MySQL 5.4 or newer (integration tests).&#xD;
+* Magento 1.8.0.0 or newer.&#xD;
+* phpunit 4.8 or newer.&#xD;
+&#xD;
+### Running the unit tests&#xD;
+&#xD;
+From the .modman/Tiny_CompressImages directory:&#xD;
+&#xD;
+    phpunit</description>
+    <notes>==== 2.0.3 ====&#xD;
+- Code changes to comply with the Magento Extension Program&#xD;
+&#xD;
+==== 2.0.2 ====&#xD;
+- Added support for HTTP proxies&#xD;
+- Retry failed request by default&#xD;
+- Better CURL warnings&#xD;
+- Updated the existing Tinify library&#xD;
+- Added support for PHP7&#xD;
+&#xD;
+==== 2.0.1 ====&#xD;
+- Support for servers with open basedir enabled.&#xD;
+- Better warnings.&#xD;
+- Linting &amp; speed improvements for Travis CI.&#xD;
+- Added an space to an sentence for readability.&#xD;
+- Better handling of the Tinify\AccountException so the logs won't be clutherd.&#xD;
+- Updated the Tinify PHP client.&#xD;
+&#xD;
+==== 2.0.0 ====&#xD;
+- Public release - Completely Rebuild code&#xD;
+- The extension now recognises duplicated images to save extra bandwidth and reduce the number of compressions.&#xD;
+- Added status to indicate the API key is valid.&#xD;
+- The configuration page now shows the latest compressions including savings.&#xD;
+- You can now click on the latest optimized images to see the results.&#xD;
+- Added the total number of compressions for the current month.&#xD;
+- A new test mode allows testing of the extension in production environments without actually changing any images that visitors will see.&#xD;
+- Added logfile options which are directly available from the Magento configuration page.</notes>
+    <authors><author><name>Tiny</name><user>TinyPNG</user><email>support@tinypng.com</email></author></authors>
+    <date>2018-02-22</date>
+    <time>14:49:46</time>
+    <contents><target name="magecommunity"><dir name="Tiny"><dir name="CompressImages"><dir name="Block"><dir name="Adminhtml"><file name="ApiNotification.php" hash="b52a526ba69185907d7f7ce0921adc1c"/><dir name="System"><dir name="Config"><dir name="Form"><dir name="Field"><file name="AccountType.php" hash="0753cf977923dc9ee64071ce1273ffc7"/><file name="Api.php" hash="f83193672a4ea502cb328634b3194831"/><file name="LogFile.php" hash="e699e21644476195261f5394dc79b172"/><file name="LogStatus.php" hash="8146245e4a4a31d9e2286c933026cca4"/><file name="Radios.php" hash="4c7ece1b54c42297f6045b045fcb84e0"/><file name="Saved.php" hash="f0542c956a2a8679e1391c24dc3485ab"/><file name="Status.php" hash="4070938f892b3a908380bce76a25929d"/><file name="SupportTab.php" hash="d507bd32b83a8b14aaf52461d9b63f66"/></dir></dir><file name="Form.php" hash="12961cf536562a8b401537d32e161614"/></dir></dir></dir></dir><file name="Exception.php" hash="1dd1d871ba0a2ef598575de9903290e5"/><dir name="Helper"><file name="Config.php" hash="b4f5af580d639c4c97eaa3dfb77a5f32"/><file name="Data.php" hash="9f95a9cc4700678d1530461f86da3980"/><file name="Tinify.php" hash="fe7e6d219382d9d4325c64918b654b30"/></dir><dir name="Model"><file name="Image.php" hash="4f05c3829e0843e40c8c0ac2fd6eebba"/><file name="Observer.php" hash="7139535c0437834b9c8ce627aac839c3"/><dir name="Product"><file name="Image.php" hash="a2e4186d060aa9069fade4d4ebcc518e"/></dir><dir name="Resource"><dir name="Image"><file name="Collection.php" hash="d9d16df3b1b6440e3076251aa81f8780"/></dir><file name="Image.php" hash="2eb4265ecbf7458f804c62b61e80e734"/><file name="Setup.php" hash="e283458ac9c153678a3a6c719cdbfb91"/><dir name="Totals"><file name="Collection.php" hash="fdcdc1ca85ac337fab31252864eb941d"/></dir><file name="Totals.php" hash="70e729f767002c31faae7ded152eb911"/></dir><dir name="System"><dir name="Config"><dir name="Backend"><file name="ApiKey.php" hash="22499692a62df9ee8860e2df09e4bbd2"/><dir name="Comment"><file name="LoggingMode.php" hash="dba404d881dcb785ac97225df6a746e0"/></dir></dir><dir name="Source"><dir name="Cms"><file name="ImageTypes.php" hash="f4ff83b2a25d152df5e425815a1b9ac7"/></dir><file name="Log.php" hash="fdfad3559c14ebab9f5990f489a78ce8"/><file name="OnOff.php" hash="460040d33b3a2522532b60673f749e57"/><dir name="Product"><file name="ImageTypes.php" hash="841b9ccd4f6bbe449074cfd5aadb0d70"/></dir><file name="Testlive.php" hash="d1cb53fdb8278202c04351c6e525aad3"/></dir></dir></dir><file name="Totals.php" hash="7a2af5ab3d84c0d766ce7f704723be80"/></dir><dir name="Test"><dir name="Block"><dir name="Adminhtml"><dir name="System"><dir name="Config"><dir name="Form"><dir name="Field"><file name="LogStatusTest.php" hash="26ff363288a128055374d500f1eaa60f"/></dir></dir></dir></dir></dir></dir><dir name="Framework"><dir name="Tiny"><dir name="Test"><file name="Config.php" hash="9220264aabacd8ca1f63b62a7527cad6"/><dir name="Http"><file name="Response.php" hash="a7c31bcd031b8ae7e895b1a48602fc62"/></dir><file name="TestCase.php" hash="8a49f7886192cc77c22b00b0e61b8695"/></dir></dir></dir><dir name="Helper"><file name="ConfigTest.php" hash="c653efe30287296e3f8bd9bcc1994da6"/></dir><dir name="Model"><file name="ImageTest.php" hash="2d7c4927198b1b49e58f0e0594cf5a3c"/><file name="ObserverTest.php" hash="d27d8f6aaf048c9c8d64da2fa587ae13"/><dir name="Product"><file name="ImageTest.php" hash="a0d6290ab4eda1d9ada11fd165a7e6f1"/></dir><dir name="System"><dir name="Config"><dir name="Backend"><dir name="Comment"><file name="LoggingModeTest.php" hash="0dcca2bf8ebb39e484ff0a70d1bb5c71"/></dir></dir></dir></dir></dir><file name="bootstrap.php" hash="3bb2b450f5fa461c0bea4c93fb49fc7f"/></dir><dir name="controllers"><dir name="CompressImagesAdminhtml"><file name="ConfigController.php" hash="fff084e22115d5b28efa219bba7a7fdd"/><file name="StatusController.php" hash="7e9eb303e31a28b75a6bf0af940b9866"/></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="61c1da0f235d4fb616fd0e2e5a6a78a7"/><file name="config.xml" hash="7325ccfef878ca107a3257d7ad79396c"/><file name="system.xml" hash="48250cdf053ab51599eceb6fecb10cb7"/></dir><dir name="sql"><dir name="tiny_compressimages_setup"><file name="install-1.0.0.php" hash="333d08c5949c91ac6ae098e15c64054d"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Tiny_CompressImages.xml" hash="598a989aeda17423c8b9f9ab11c341bb"/></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><dir name="Tiny"><file name="CompressImages.xml" hash="63d02f84f40722cd69ddaa234900e811"/></dir></dir><dir name="template"><dir name="Tiny"><dir name="CompressImages"><dir name="Api"><file name="keyNotification.phtml" hash="c9e81d3e8fbe85fb4ae892f9de44ac19"/></dir><dir name="system"><dir name="config"><dir name="form"><dir name="field"><file name="log_file.phtml" hash="f6ad229ffe35bc1cdbc3a2ee58e05b88"/><file name="log_status.phtml" hash="c3539e506c59059b3ea9137585c78dd0"/><file name="support_tab.phtml" hash="82d7ee5b4a782dc9dcfabb0fa5b843ae"/></dir></dir></dir></dir></dir></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="css"><dir name="Tiny"><dir name="CompressImages"><file name="config.css" hash="718b865da9aa84e0012087e6b28bdea8"/></dir></dir></dir><dir name="images"><dir name="Tiny"><dir name="CompressImages"><file name="george-magento@2x_opt.png" hash="13554407009301f1f62b212d67f5ae5e"/><file name="george-menu-icon@2x.png" hash="b1417eacc5320ad2741b8fd76ee60d56"/></dir></dir></dir></dir></dir></dir></target><target name="magelocale"><dir name="en_US"><file name="Tiny_CompressImages.csv" hash="fb46654a4e897e7ef5db37a57fec5320"/></dir></target><target name="magelib"><dir name="TinyCompress"><file name="CHANGES.md" hash="de98c32cb78d86d4effc75eb489ff4e7"/><file name="LICENSE" hash="83cea2ac6da126d2dc6bcb26e740bac4"/><file name="README.md" hash="bd0c9f693fb84769a64c0b8721ecb394"/><file name="composer.json" hash="24129bff61e8cfa8b2a82efee5c7069a"/><file name="composer.lock" hash="faf46a8bba90ecc3a886f94f3cf922f4"/><dir name="lib"><dir name="Tinify"><file name="Client.php" hash="cd5a21fcfe81493b4f7b75888a02df86"/><file name="Exception.php" hash="ef195fc4ac81e45a7a52053d094da53f"/><file name="Result.php" hash="d6e0474e180cb17d0dc383ab974c0062"/><file name="ResultMeta.php" hash="4ec72ae5736f7fc91d7cb2b4bb55d3b9"/><file name="Source.php" hash="910a330fdc4c8ac525da9a03e2a7d1c4"/></dir><file name="Tinify.php" hash="35a0a34aac10690ff3bdcd8bf76a1625"/><dir name="data"><file name="cacert.pem" hash="471bb98c836581622f6439381f108113"/></dir></dir><file name="phpunit.xml" hash="73458f69fc3467a5d6ed3b1e5cd160cf"/><dir name="test"><file name="TinifyClientTest.php" hash="17f1e6cc508f180f4c8f91af7a04c817"/><file name="TinifyResultMetaTest.php" hash="6c7e18d7ad946c7ac61a638cc92df8df"/><file name="TinifyResultTest.php" hash="0b574d4fd3b16d2cf7afb09a9f3e6e3a"/><file name="TinifySourceTest.php" hash="6d4696cd75da442d0763d250fbfae329"/><file name="TinifyTest.php" hash="07cbf589bd60428a29db79f20bdcbba6"/><file name="curl_mock.php" hash="fc6b28153496643f3601381d9d3f1937"/><dir name="examples"><file name="dummy.png" hash="d41d8cd98f00b204e9800998ecf8427e"/><file name="voormedia.png" hash="2824dd3c804309be2d275dbc2f16c788"/></dir><file name="helper.php" hash="f6cbeaa8abdbe182891fe6c71711aa3c"/><file name="integration.php" hash="6df93152d00699efeb66b1e9d05f0d94"/></dir><file name="update-cacert.sh" hash="6ef5c2ae07d7d8628e2db2e7681b0862"/><file name=".gitignore" hash="e8a346051f935e6cb104e1dc40998a91"/><file name=".travis.yml" hash="f7e47183576efe5acc30fdab195bb0f2"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.4.0</min><max>7.0.22</max></php></required></dependencies>
+</package>

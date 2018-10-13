@@ -1,0 +1,19 @@
+<!-- <?xml version="1.0"?>
+<layout version="0.1.0">
+    <calendarview_index_index>
+        <reference name="content">
+            <block type="calendarview/calendarview" name="calendarview" />
+        </reference>
+    </calendarview_index_index>
+</layout>  -->
+
+<!--Or use  -->
+
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <calendarview_index_index>
+        <reference name="content">
+            <block type="core/template" name="calendarview" template="calendarview/calendarview.phtml" />
+        </reference>
+    </calendarview_index_index>
+</layout> 

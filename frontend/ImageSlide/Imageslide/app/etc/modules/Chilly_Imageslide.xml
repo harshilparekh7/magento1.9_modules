@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Chilly_Imageslide>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Chilly_Imageslide>
+    </modules>
+</config>

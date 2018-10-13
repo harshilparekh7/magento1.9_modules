@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+    <default>
+        <reference name="head">
+            <action method="addCss"><stylesheet>neklo/instagram/css/style.css</stylesheet></action>
+        </reference>
+    </default>
+    <neklo_instagram_api_connect>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>neklo_instagram/reload.phtml</template>
+            </action>
+        </reference>
+    </neklo_instagram_api_connect>
+</layout>

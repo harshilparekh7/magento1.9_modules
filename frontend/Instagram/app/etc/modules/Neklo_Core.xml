@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Neklo_Core>
+            <active>true</active>
+            <codePool>community</codePool>
+            <extension_name>Neklo Core</extension_name>
+        </Neklo_Core>
+    </modules>
+</config>

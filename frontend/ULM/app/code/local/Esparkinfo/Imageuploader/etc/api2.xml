@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * {{Esparkinfo}}_{{Imageuploader}} extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       {{Esparkinfo}}
+ * @package        {{Esparkinfo}}_{{Imageuploader}}
+ * @copyright      Copyright (c) 2018
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <api2>
+        <resource_groups>
+            <esparkinfo_imageuploader translate="title" module="esparkinfo_imageuploader">
+                <title>Imageuploader</title>
+                <sort_order>120</sort_order>
+                <children>
+                    <esparkinfo_imageuploader_imageupload translate="title" module="esparkinfo_imageuploader">
+                        <title>imageupload</title>
+                        <sort_order>0</sort_order>
+                    </esparkinfo_imageuploader_imageupload>
+
+                </children>
+            </esparkinfo_imageuploader>
+        </resource_groups>
+        <resources>
+            <esparkinfo_imageuploader_imageupload translate="title" module="esparkinfo_imageuploader">
+                <group>esparkinfo_imageuploader_imageupload</group>
+                <model>esparkinfo_imageuploader/api2_imageupload</model>
+                <working_model>esparkinfo_imageuploader/imageupload</working_model>
+                <title>imageupload</title>
+                <sort_order>0</sort_order>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>1</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="entity_id imageupload status url_key in_rss meta_title meta_keywords meta_description allow_comment" module="esparkinfo_imageuploader">
+                    <entity_id>Id</entity_id>
+                    <imageupload>imageupload</imageupload>
+                    <status>Enabled</status>
+                    <url_key>URL key</url_key>
+                    <in_rss>In RSS</in_rss>
+                    <meta_title>Meta title</meta_title>
+                    <meta_keywords>Meta keywords</meta_keywords>
+                    <meta_description>Meta description</meta_description>
+                    <allow_comment>Allow Comment</allow_comment>
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/imageuploader_imageuploads/:id</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                    <route_entity_with_store>
+                        <route>/imageuploader_imageuploads/:id/store/:store</route>
+                        <action_type>entity</action_type>
+                    </route_entity_with_store>
+                    <route_collection>
+                        <route>/imageuploader_imageuploads</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                    <route_collection_with_store>
+                        <route>/imageuploader_imageuploads/store/:store</route>
+                        <action_type>collection</action_type>
+                    </route_collection_with_store>
+                </routes>
+                <versions>1</versions>
+            </esparkinfo_imageuploader_imageupload>
+
+        </resources>
+    </api2>
+</config>

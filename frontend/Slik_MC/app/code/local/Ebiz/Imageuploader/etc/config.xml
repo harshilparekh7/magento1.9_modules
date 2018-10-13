@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Ebiz_Imageuploader>
+      <version>0.1.0</version>
+    </Ebiz_Imageuploader>
+  </modules>
+  <frontend>
+    <routers>
+      <imageuploader>
+        <use>standard</use>
+          <args>
+            <module>Ebiz_Imageuploader</module>
+            <frontName>imageuploader</frontName>
+          </args>
+      </imageuploader>
+    </routers>
+		<layout>
+		  <updates>
+			<imageuploader>
+			  <file>imageuploader.xml</file>
+			</imageuploader>
+		  </updates>
+		</layout>
+  </frontend>
+  <global>
+    <helpers>
+      <imageuploader>
+        <class>Ebiz_Imageuploader_Helper</class>
+      </imageuploader>
+    </helpers>
+	<blocks>
+	  <imageuploader>
+		<class>Ebiz_Imageuploader_Block</class>
+	  </imageuploader>
+	</blocks>
+	<models>
+	  <imageuploader>
+		<class>Ebiz_Imageuploader_Model</class>
+		<resourceModel>imageuploader_mysql4</resourceModel>
+	  </imageuploader>
+	  <imageuploader_mysql4>
+		<class>Ebiz_Imageuploader_Model_Mysql4</class>
+		<entities>		  
+			  <imageuploader>
+				<table>imageuploader</table>
+			  </imageuploader>
+        </entities>
+	  </imageuploader_mysql4>
+	</models>
+	<resources>
+	  <imageuploader_setup>
+		<setup>
+		  <module>Ebiz_Imageuploader</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </imageuploader_setup>
+	  <imageuploader_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </imageuploader_write>
+	  <imageuploader_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </imageuploader_read>
+	</resources>
+  </global>
+  <admin>
+	<routers>
+	  <imageuploader>
+	    <use>admin</use>
+		<args>
+		  <module>Ebiz_Imageuploader</module>
+		  <frontName>admin_imageuploader</frontName>
+		</args>
+	  </imageuploader>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <imageuploader module="imageuploader">
+		<title>Imageuploader</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <imageuploaderbackend module="imageuploader">
+			<title>Image Uploader</title>
+			<sort_order>0</sort_order>
+			<action>admin_imageuploader/adminhtml_imageuploaderbackend</action>
+		  </imageuploaderbackend>
+		  <imageuploader module="imageuploader">
+		    <title>Manage Imageuploader</title>
+			<sort_order>0</sort_order>
+			<action>admin_imageuploader/adminhtml_imageuploader</action>
+		  </imageuploader>
+		</children>
+	  </imageuploader>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<imageuploader translate="title" module="imageuploader">
+			  <title>Imageuploader</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <imageuploaderbackend translate="title">
+			<title>Image Uploader</title>
+		  </imageuploaderbackend>
+		  <imageuploader translate="title">
+			<title>Manage Imageuploader</title>
+			<sort_order>0</sort_order>
+		  </imageuploader>
+			  </children>
+			</imageuploader>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<imageuploader>
+		  <file>imageuploader.xml</file>
+		</imageuploader>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 

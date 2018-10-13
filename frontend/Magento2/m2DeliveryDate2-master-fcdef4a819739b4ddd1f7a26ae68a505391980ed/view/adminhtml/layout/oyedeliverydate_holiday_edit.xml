@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Oye\Deliverydate\Block\Adminhtml\Holiday\Edit"
+                name="oyedeliverydate_holiday_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Oye\Deliverydate\Block\Adminhtml\Holiday\Edit\Tabs"
+                   name="oyedeliverydate_holiday_edit.tabs"/>
+        </referenceContainer>
+    </body>
+</page>

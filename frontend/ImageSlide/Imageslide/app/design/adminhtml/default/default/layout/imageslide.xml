@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<imageslide_adminhtml_imageslide_product>
+       <block type="core/text_list" name="root" output="toHtml">
+           <block type="imageslide/adminhtml_imageslide_edit_tab_product" name="product.grid"/>
+           <block type="adminhtml/widget_grid_serializer" name="grid_serializer">
+               <reference name="grid_serializer">
+                   <action method="initSerializerBlock">
+                       <grid_block_name>product.grid</grid_block_name>
+                       <data_callback>getSelectedProducts</data_callback>
+                       <hidden_input_name>links[products]</hidden_input_name>
+                       <reload_param_name>products</reload_param_name>
+                   </action>
+                   <action method="addColumnInputName">
+                       <input_name>position</input_name>
+                   </action>                  
+               </reference>
+           </block>
+       </block>
+  </imageslide_adminhtml_imageslide_product>
+  <imageslide_adminhtml_imageslide_productgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="imageslide/adminhtml_imageslide_edit_tab_product" name="product.grid"/>
+        </block>
+    </imageslide_adminhtml_imageslide_productgrid>
+</layout>
+   

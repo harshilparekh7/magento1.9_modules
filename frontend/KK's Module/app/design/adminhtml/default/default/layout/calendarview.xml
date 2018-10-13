@@ -1,0 +1,8 @@
+<!-- <?xml version="1.0"?>
+<layout version="0.1.0">
+    <calendarview_adminhtml_calendarview_index>
+        <reference name="content">
+            <block type="calendarview/adminhtml_calendarview" name="calendarview" />
+        </reference>
+    </calendarview_adminhtml_calendarview_index>
+</layout> -->

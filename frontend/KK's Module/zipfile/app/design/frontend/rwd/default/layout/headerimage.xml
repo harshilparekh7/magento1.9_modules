@@ -1,0 +1,19 @@
+<!-- <?xml version="1.0"?>
+<layout version="0.1.0">
+    <headerimage_index_index>
+        <reference name="content">
+            <block type="headerimage/headerimage" name="headerimage" />
+        </reference>
+    </headerimage_index_index>
+</layout> 
+ -->
+<!--Or use  -->
+
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <headerimage_index_index>
+        <reference name="content">
+            <block type="core/template" name="headerimage" template="headerimage/headerimage.phtml" />
+        </reference>
+    </headerimage_index_index>
+</layout> 
