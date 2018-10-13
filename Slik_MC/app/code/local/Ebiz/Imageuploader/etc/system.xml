@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-	  <tabs>
-		<imageuploader translate="label" module="imageuploader">
-            <label>Image Uploader</label>
-            <sort_order>55</sort_order>
-        </imageuploader>
-	  </tabs>
-</config>

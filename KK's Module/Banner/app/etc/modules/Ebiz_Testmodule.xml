@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-    <modules>
-        <Ebiz_Testmodule>
-            <active>true</active>
-            <codePool>local</codePool>
-        </Ebiz_Testmodule>
-    </modules>
-</config> 

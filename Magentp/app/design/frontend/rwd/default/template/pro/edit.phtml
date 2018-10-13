@@ -1,0 +1,37 @@
+<?php
+    $models = Mage::getModel('pro/pro')->getCollection();
+    $edit = Mage::getModel('pro/pro')->load($_GET['id']);
+    echo "<pre/>";
+    print_r($edit->getData());
+?>
+    <form  method="post" name="item_form"  id="item_form" action="<?php echo $this->getBaseUrl().'pro/index/edit' ?>" enctype="multipart/form-data" >           
+        <input type="hidden" name="id" value="<?php echo $edit->getstd_id(); ?>" />
+        <label for="title"><?php echo $this->__('Stdname:- ') ?><span class="required">*</span></label>
+        <input type="text" id="name" name="name" value="<?php echo $edit->getStdname(); ?>" class="input-text required-entry" />
+        <label for="title"><?php echo $this->__('Email Id:- ') ?><span class="required">*</span></label>
+        <input type="text" id="Email" name="Email" value="<?php echo $edit->getEmail(); ?>" class="input-text required-entry" />
+        <label for="title"><?php echo $this->__('Rollno:- ') ?><span class="required">*</span></label>
+        <input type="text" id="Roll" name="Roll" value="<?php echo $edit->getRollno(); ?>" class="input-text required-entry" />
+        gender:<br>
+        <input type="radio" name="gender" value="male" <?php echo ("male" == $edit->getGender()) ? 'checked' : ''; ?>> Male<br>
+        <input type="radio" name="gender" value="female" <?php echo ("male" != $edit->getGender()) ? 'checked' : ''; ?>> Female<br>
+        <br>
+        <label for="title"><?php echo $this->__('filename:- ') ?><span class="required">*</span></label>
+        <input type="text" id="filename" name="filename" value="<?php echo $edit->getRollno(); ?>" class="input-text required-entry" />
+        status:<br>
+        <select name="status">              
+        <option value='1' <?php echo (1 == $edit->getStatus()) ? 'selected' : ''; ?>>Disable</option>
+        <option value='0' <?php echo (0 == $edit->getStatus()) ? 'selected' : ''; ?>>Enable</option>
+        </select>
+        <?php
+        echo '<img id=output src='.Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'test/'.$edit->getFilename().' width="50px" height"50px"/>'
+        ?>
+<input type="file" accept="image/*" onchange="loadFile(event)" name="filename">
+  <script type="text/javascript">
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+  </script>
+        <button type="submit" title="Update" name="submit" >Update</button>
+    </form>

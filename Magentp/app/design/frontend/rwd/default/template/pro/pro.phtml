@@ -1,0 +1,61 @@
+<form method="POST" action="<?php echo $this->getUrl('pro/index/save'); ?>" enctype="multipart/form-data">
+  <fieldset>
+    <legend>Student intion:</legend>
+    Name:<br>
+    <input type="text" name="name" minlength="3" placeholder="Enter Name" required>
+    <br>
+    Email:<br>
+    <input type="email" name="email" placeholder="Enter Email" required>
+    <br>
+    Roll No.:<br>
+    <input type="number" name="rollno" min="1" placeholder="Enter Roll No." required>
+    <br><br>
+    <br>
+    gender:<br>
+          <input type="radio" name="gender" value="male" checked> Male<br>
+            <input type="radio" name="gender" value="female"> Female<br>
+    <br>
+        <label for="filename"><?php echo $this->__('File1') ?></label><br />
+        <input type="file" id="filename" name="filename" /><br/>
+    <br/>
+ status:<br>
+ <select name="status">
+ <option value="0">Enable</option>
+ <option value="1">Disable</option>
+ </select>
+    <br>    
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+<?php
+$collection = Mage::getModel('pro/pro')->getCollection()->setOrder('rollno', 'DESC');
+?>
+
+<br/>
+<div id="table_id">
+<table border="1px">
+<?php foreach($collection as $collect){//
+if($collect->getStatus() == 0){ ?>
+<tr>
+<td  border="1px" style="text-align:center"> <?php echo $collect->getstd_id(); ?>  </td>
+
+<td  border="1px" style="text-align:center"> <?php echo $collect->getStdname(); ?>  </td>
+
+<td  border="1px" style="text-align:center"> <?php echo $collect->getEmail(); ?>   </td>
+
+<td border="1px" style="text-align:center"> <?php echo $collect->getRollno(); ?>   </td>
+
+<td  border="1px" style="text-align:center"> <?php echo $collect->getCountry(); ?>   </td>
+
+<td  border="1px" style="text-align:center"> <?php echo $collect->getGender(); ?>   </td>
+
+<td  border="1px" style="text-align:center"> <img src="<?php $v = Mage::getBaseUrl("media")."test/".$collect->getFilename();?> <?php// echo $v; ?> <?php echo $v; ?>" height="50px" width= "50px"/>   </td>
+
+<td  border="1px" style="text-align:center"><a href=" <?php echo $this->getBaseUrl().'pro/index/deletedata?id='.$collect->getstd_id(); ?>" /> <?php echo $this->__('DELETE'); ?>   </td>
+
+<td  border="1px" style="text-align:center"> <a href="<?php echo $this->getBaseUrl().'pro/index/editData?id='.$collect->getstd_id(); ?>" /> <?php echo $this->__('EDIT'); ?>  </td>
+</tr>
+ <?php } } ?> 
+
+</table>
+</div>

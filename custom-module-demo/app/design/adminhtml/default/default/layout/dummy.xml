@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<layout version="0.1.0">
-  <dummy_adminhtml_dummy_index>
-	<reference name="content">
-	  <block type="dummy/adminhtml_dummy" name="dummy" />
-	</reference>
-  </dummy_adminhtml_dummy_index>
-</layout>

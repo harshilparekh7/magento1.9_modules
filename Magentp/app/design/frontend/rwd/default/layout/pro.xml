@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <pro_index_index>
+        <reference name="content">
+            <block type="pro/pro" name="template_file" template="pro/pro.phtml"></block>
+        </reference>
+    </pro_index_index>
+    <pro_index_editdata>
+        <reference name="content">
+            <block type="pro/pro" name="template_file" template="pro/edit.phtml"></block>
+        </reference>
+    </pro_index_editdata>
+</layout>

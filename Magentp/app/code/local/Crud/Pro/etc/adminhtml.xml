@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+ <config>
+ <menu>
+ <pro module="pro">
+ <title>Pro</title>
+ <sort_order>72</sort_order>
+ <children>
+ <items module="pro">
+ <title>Dispaly Student Data</title>
+ <sort_order>0</sort_order>
+ <action>pro/adminhtml_pro</action>
+ </items>
+ </children>
+ </pro>
+ </menu>
+ <acl>
+ <resources>
+ <all>
+ <title>Allow Everything</title>
+ </all>
+ <admin>
+ <children>
+ <pro>
+ <title>Pro Module</title>
+ <sort_order>201</sort_order>
+ </pro>
+ </children>
+ </admin>
+ </resources>
+ </acl>
+ <layout>
+ <updates>
+ <pro>
+ <file>pro.xml</file>
+ </pro>
+ </updates>
+ </layout>
+ </config>

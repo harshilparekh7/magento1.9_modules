@@ -1,8 +1,0 @@
-#checkout-step-shipping_method input[name="delivery-date"]{
-    max-width: 500px;
-}
-
-#checkout-step-shipping_method .field > .label{
-    margin: 0 0 8px;
-    display: inline-block;
-}

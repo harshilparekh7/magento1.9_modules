@@ -1,8 +1,0 @@
-<!-- <?xml version="1.0"?>
-<layout version="0.1.0">
-    <leftsidebar_adminhtml_leftsidebar_index>
-        <reference name="content">
-            <block type="leftsidebar/adminhtml_leftsidebar" name="leftsidebar" />
-        </reference>
-    </leftsidebar_adminhtml_leftsidebar_index>
-</layout> -->
